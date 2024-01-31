@@ -1,15 +1,15 @@
-import express from 'express';
+const express = require('express');
+const path = require('path');
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+app.set('views',path.join(__dirname, 'views'))
+app.set('view engine', 'jade')
 
-app.get('/home', (req, res) =>{
-  res.send("welcome home")
+app.get('/', (req, res) =>{
+  res.render('index')
 })
 
-app.listen(3000, () => {
-  console.log('Express server initialized');
-});
+app.listen(3000, () =>{
+  console.log('listening to port 3000')
+})
