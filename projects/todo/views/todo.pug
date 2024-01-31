@@ -2,29 +2,33 @@ doctype html
 html
   head
     title the to do
+    link(rel="stylesheet" type="text/css" href="/css/style.css")
   body
     h1 this is the to do application
 
-    div
+    div(id="btnentry")
       p 
-        button(onclick="reveal()" class="reveal") +
-    div
+        button(onclick="reveal()" class="reveal-btn") add new activity
+    div(id="todoentry")
       form(method="post" action="/todo")
-        input(type="text" name="item")
-        input(type="submit" value="submit")
+        input(type="text" name="item" id="todoinp")
+        input(type="submit" value="submit" id="todosub")
     div
       if data.length > 0
         table
           each val in data
             tr
               td= val
+              td(id=`edit-btn-${data.indexOf(val)}` class="btn-edit")
+                button(onclick=`hideimportant('edit-btn-${data.indexOf(val)}', 'form-btn-${data.indexOf(val)}')` class="edit-btn-btn") edit
+              td(id=`form-btn-${data.indexOf(val)}` class="form-edit")
+                form(method="post" action=`/todo/${data.indexOf(val)}`)
+                  input(type="text" name="change" class="edit-submit-inp")
+                  input(type="submit" value="submit" class="edit-submit-btn")
               td
-                button edit
-              td 
-                form()
-                  input(type="text")
-                  input(type="submit" value="submit")
-              td
-                a(href=`/todo/${val}`) delete
+                button(class="delete-btn")
+                  a(href=`/todo/${data.indexOf(val)}`) delete
       else
         p there is no data available
+
+    script(src="/js/function.js")
