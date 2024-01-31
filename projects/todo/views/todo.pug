@@ -13,7 +13,18 @@ html
         input(type="text" name="item")
         input(type="submit" value="submit")
     div
-      ul
-        each val in data
-          li= val
-      
+      if data.length > 0
+        table
+          each val in data
+            tr
+              td= val
+              td
+                button edit
+              td 
+                form()
+                  input(type="text")
+                  input(type="submit" value="submit")
+              td
+                a(href=`/todo/${val}`) delete
+      else
+        p there is no data available
