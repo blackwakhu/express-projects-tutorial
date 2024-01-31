@@ -13,6 +13,9 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.set('views',path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
+// css and js in external files
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.get('/', (req, res) =>{
   res.render('index')
 })
@@ -30,7 +33,12 @@ app.post('/todo', (req, res)=>{
 })
 
 app.get("/todo/:item", (req, res)=>{
-  data.splice(data.indexOf(req.params.item), 1);
+  data.splice(req.params.item, 1);
+  res.redirect('/todo')
+})
+
+app.post("/todo/:item", (req, res)=>{
+  data[req.params.item] = req.body.change;
   res.redirect('/todo')
 })
 
