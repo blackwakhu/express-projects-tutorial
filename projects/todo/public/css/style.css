@@ -1,0 +1,73 @@
+#todoentry{
+  display: none;
+  width: 100%;
+}
+
+.reveal-btn{
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  margin-right: 8px;
+  background-color: skyblue;
+}
+
+.reveal-btn:hover{
+  background-color: #00ea00;
+  border-color: #00ea00;
+}
+
+#todoinp{
+  width: 70%;
+  border: none;
+  padding: 8px;
+  background-color: purple;
+  margin-right: 2%;
+}
+
+#todoinp:hover{
+  background-color: #dddec9;
+  color: black;
+  border-bottom: 2px;
+  border-bottom-style: solid;
+}
+
+#todosub{
+  width: 15%;
+  padding: 8px;
+  background-color: #2fab18;
+  color: black;
+}
+
+#todosub:hover{
+  background-color: #00ea00;
+  border-color: #00ea00;
+}
+
+.form-edit{
+  display: none;
+}
+
+.delete-btn{
+  background-color: red;
+}
+
+.delete-btn a{
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+  
+}
+
+.edit-btn-btn{
+  background-color: #2881ec;
+}
+
+.delete-btn, .reveal-btn, .edit-submit-btn, .edit-submit-inp, .edit-btn-btn, #todosub, #todoinp{
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+td{
+  padding: 6px;
+  font-size: 25px;
+}
