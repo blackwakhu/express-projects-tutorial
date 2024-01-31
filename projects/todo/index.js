@@ -18,12 +18,19 @@ app.get('/', (req, res) =>{
 })
 
 app.get('/todo', (req, res)=>{
-  data.forEach((val)=>{console.log(val)})
   res.render('todo', {"data": data})
 })
 
 app.post('/todo', (req, res)=>{
-  data.push(req.body.item)
+  if (data.includes(req.body.item)){
+  }else{
+    data.push(req.body.item)
+  }
+  res.redirect('/todo')
+})
+
+app.get("/todo/:item", (req, res)=>{
+  data.splice(data.indexOf(req.params.item), 1);
   res.redirect('/todo')
 })
 
